@@ -6,6 +6,24 @@ It uses the A\* pathfinding algorithm to show the shortest route from your curre
 
 ---
 
+## 📁 Project Structure
+
+```bash
+path_finder/
+│
+├── .gitignore
+├── a_star.py
+├── grid.py
+├── main.py
+├── README.md
+│
+└── assets/
+    ├── demo_gif.gif
+    └── demo_video.mp4
+```
+
+---
+
 ## 💡 What It Does
 
 -   Lets you pick a starting point and destination on a map
@@ -28,6 +46,12 @@ Whether you're navigating a busy hospital or a confusing college campus, this to
 ## 📸 Example Use Case
 
 Imagine you’re in a hospital, and you need to go from the main entrance to the X-Ray department. You open this app, click on your location, choose your destination, and boom—your route is drawn instantly.
+
+---
+
+## 🎬 Demo
+
+![Demo of the navigation](assets/demo_gif.gif)
 
 ---
 
