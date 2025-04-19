@@ -1,13 +1,5 @@
 import tkinter as tk
 
-building_grid = [
-    [0, 0, 0, 1, 0],
-    [1, 1, 0, 1, 0],
-    [0, 0, 0, 0, 0],
-    [0, 1, 1, 1, 0],
-    [0, 0, 0, 2, 0],
-]
-
 CELL_SIZE = 60  # Size of each tile in pixels
 ROWS = len(building_grid)
 COLS = len(building_grid[0])

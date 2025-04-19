@@ -1,5 +1,6 @@
 import heapq
 
+
 class AStarPathfinder:
     def __init__(self, grid, accessible_mode=False):
         self.grid = grid
@@ -9,14 +10,16 @@ class AStarPathfinder:
 
     @staticmethod
     def heuristic(a, b):
-        return abs(a[0] - b[0]) + abs(a[1] - b[1]) 
+        return abs(a[0] - b[0]) + abs(a[1] - b[1])
 
     def get_neighbors(self, node):
         x, y = node
         directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
         return [
-            (nx, ny) for dx, dy in directions
-            if 0 <= (nx := x + dx) < self.rows and 0 <= (ny := y + dy) < self.cols
+            (nx, ny)
+            for dx, dy in directions
+            if 0 <= (nx := x + dx) < self.rows
+            and 0 <= (ny := y + dy) < self.cols
             and self.grid[nx][ny] != 1
             and not (self.accessible_mode and self.grid[nx][ny] == 2)
         ]
@@ -42,13 +45,13 @@ class AStarPathfinder:
             for neighbor in self.get_neighbors(current):
                 tentative_g = g_score[current] + 1
 
-                if tentative_g < g_score.get(neighbor, float('inf')):
+                if tentative_g < g_score.get(neighbor, float("inf")):
                     came_from[neighbor] = current
                     g_score[neighbor] = tentative_g
                     f_score = tentative_g + self.heuristic(neighbor, goal)
                     heapq.heappush(open_set, (f_score, neighbor))
 
-        return []  
+        return []
 
     def reconstruct_path(self, came_from, current):
         path = []
@@ -57,19 +60,3 @@ class AStarPathfinder:
             current = came_from[current]
         path.append(current)
         return path[::-1]
-
-
-grid = [
-    [0, 0, 0, 1, 0, 0, 0],
-    [1, 1, 0, 1, 2, 1, 0],
-    [0, 0, 0, 0, 2, 0, 0],
-    [0, 1, 1, 1, 1, 1, 0],
-    [0, 0, 0, 0, 0, 0, 0],
-]
-
-start = (0, 0)
-goal = (4, 6)
-
-finder = AStarPathfinder(grid, accessible_mode=True)
-path = finder.find_path(start, goal)
-print("Optimized Path:", path)
