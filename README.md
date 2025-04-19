@@ -60,8 +60,8 @@ Imagine you’re in a hospital, and you need to go from the main entrance to the
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/yourusername/indoor-pathfinding
-cd indoor-pathfinding
+git clone https://github.com/Koustav2908/path-finder/
+cd path-finder
 ```
 
 2. Run the app:
