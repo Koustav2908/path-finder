@@ -1,8 +1,11 @@
 import tkinter as tk
 
+from a_star import AStarPathfinder
+from grid import hospital_grid
+
 CELL_SIZE = 60  # Size of each tile in pixels
-ROWS = len(building_grid)
-COLS = len(building_grid[0])
+ROWS = len(hospital_grid)
+COLS = len(hospital_grid[0])
 
 start = None
 end = None
@@ -16,7 +19,7 @@ def draw_grid(canvas, path=None):
             x2 = x1 + CELL_SIZE
             y2 = y1 + CELL_SIZE
 
-            cell = building_grid[i][j]
+            cell = hospital_grid[i][j]
             color = "white"
             if cell == 1:
                 color = "black"
@@ -55,7 +58,7 @@ def on_canvas_click(event):
 
 
 def find_and_draw_path():
-    finder = AStarPathfinder(building_grid, accessible_mode=accessible_var.get())
+    finder = AStarPathfinder(hospital_grid, accessible_mode=accessible_var.get())
     path = finder.find_path(start, end)
     draw_grid(canvas, path=path)
 
