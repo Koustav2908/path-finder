@@ -46,7 +46,3 @@ for name, (r, c) in location_map.items():
         display_grid[r][c] = "🔽"
     elif name == "Exit":
         display_grid[r][c] = "🚪"
-
-# Print the grid
-for row in display_grid:
-    print(" ".join(row))
